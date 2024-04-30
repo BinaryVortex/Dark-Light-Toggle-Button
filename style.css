@@ -1,0 +1,76 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background:linear-gradient(#40e9d2,#21adee);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    transition: background-color 0.3s;
+}
+
+.mode-toggle {
+    position: absolute;
+    left: -9999px;
+}
+
+.container {
+    position: relative;
+    width: 220px;
+    height: 90px;
+    display: flex;
+    align-items: center;
+    padding-top: 4px;
+    padding-inline: 8px;
+}
+
+.background {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    transition: opacity 0.5s ease;
+}
+
+.light {
+    background-image: url("assets/light.png");
+    opacity: 1;
+}
+
+.dark {
+    background-image: url("assets/dark.png");
+    opacity: 0;
+}
+
+.ball {
+    height: 75px;
+    width: 75px;
+    margin-top: 12px;
+    position: relative;
+    z-index: 10;
+    border-radius: 50%;
+    margin-left: 12px;
+    cursor: pointer;
+    transition: transform 0.5s;
+    background-size: cover;
+
+    background-image: url('assets/sun.png'); 
+}
+
+.mode-toggle:checked ~ .container .light {
+    opacity: 0;
+}
+
+.mode-toggle:checked ~ .container .dark {
+    opacity: 1;
+}
+
+.mode-toggle:checked ~ .container .ball {
+    transform: translateX(125px);
+    background-image: url('assets/moon.png'); 
+}
